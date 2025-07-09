@@ -13,7 +13,10 @@ function M.insert_swagger_doc()
         "--- @Router /path [get]",
     }
 
-    local row, _ = table.unpack(vim.api.nvim_win_get_cursor(0))
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local row = cursor[1]
+
+
     vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, swagger_lines)
 end
 
