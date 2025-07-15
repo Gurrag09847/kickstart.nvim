@@ -918,31 +918,58 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'tokyonight-night'
   --   end,
   -- },
-  {
-    'rebelot/kanagawa.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('kanagawa').setup {
-        -- styles = {
-        --   transparent = true,
-        --   comments = { italic = false }, -- Disable italics in comments
-        -- },
-      }
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   config = function()
+  --     ---@diagnostic disable-next-line: missing-fields
+  --     require('kanagawa').setup {
+  --       -- styles = {
+  --       --   transparent = true,
+  --       --   comments = { italic = false }, -- Disable italics in comments
+  --       -- },
+  --     }
 
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'kanagawa-wave'
-    end,
-  },
+  --     -- Load the colorscheme here.
+  --     -- Like many other themes, this one has different styles, and you could load
+  --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+  --     -- vim.cmd.colorscheme 'kanagawa-wave'
+  --   end,
+  -- },
+  -- {
+  --   'AlexvZyl/nordic.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('nordic').load()
+  --     vim.cmd.colorscheme 'nordic'
+  --   end
+  -- },
+
   {
-    'AlexvZyl/nordic.nvim',
+    'lmantw/themify.nvim',
+
     lazy = false,
-    priority = 1000,
+    priority = 999,
+
     config = function()
-      require('nordic').load()
-      vim.cmd.colorscheme 'nordic'
+      require('themify').setup({
+        -- Your list of colorschemes.
+
+        'folke/tokyonight.nvim',
+        'sho-87/kanagawa-paper.nvim',
+        'AlexvZyl/nordic.nvim',
+        'rebelot/kanagawa.nvim',
+        {
+          'comfysage/evergarden',
+
+          branch = 'mega'
+        },
+
+        -- Built-in colorschemes are also supported.
+        -- (Also works with any colorschemes that are installed via other plugin manager, just make sure the colorscheme is loaded before Themify is loaded.)
+        'default'
+      })
     end
   },
 
