@@ -8,8 +8,8 @@ function M.insert_swagger_doc()
         "// @Accept json",
         "// @Produce json",
         "// @Param id path int true \"ID of the object\"",
-        "// @Success 200 {object} model.Object",
-        "// @Failure 400 {object} model.ErrorResponse",
+        "// @Success 200 {object} pkg.Response",
+        "// @Failure 400 {object} pkg.ErrResponse",
         "// @Router /path [get]",
     }
 
